@@ -8,11 +8,20 @@ const PORT = 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname+'/views/index.html'));
+    res.status(200).sendFile(path.join(__dirname + '/views/index.html'));
 });
 
+app.get('/sugestao', (req, res) => {
+    const { nome, ingredientes } = req.query;
+
+    res.send(`
+    <h1>Obrigado pela sugestão, ${nome}!</h1>
+    <p>Você sugeriu os ingredientes:${ingredientes}.</p>
+  `);
+})
+
 app.get('/contato', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname+'/views/contato.html'));
+    res.status(200).sendFile(path.join(__dirname + '/views/contato.html'));
 });
 
 app.get('/api/lanches', (req, res) => {
