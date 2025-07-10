@@ -17,6 +17,9 @@ app.get('/sugestao', (req, res) => {
     const { nome, ingredientes } = req.query;
 
     res.status(200).send(`
+    <a href="/">
+        <button type="button">Ir para Index</button>
+    </a>
     <h1>Obrigado pela sugestão, ${nome}!</h1>
     <p>Você sugeriu os ingredientes:${ingredientes}.</p>
   `);
@@ -29,6 +32,9 @@ app.get('/contato', (req, res) => {
 app.post('/contato', (req, res) => {
     const { nome, email, assunto, mensagem } = req.body;
     res.status(200).send(`
+    <a href="/">
+        <button type="button">Ir para Index</button>
+    </a>
     <h1>Obrigado pelo contato, ${nome}!</h1>
     <p>Email: ${email}</p>
     <p>Assunto: ${assunto}</p>
