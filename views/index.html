@@ -14,15 +14,15 @@
 
     <div>
         <h2>Deixe sua sugestão de lanche: </h2>
-        <form action="/sugestao">
+        <form action="/sugestao" method="get">
             <div class="campo">
                 <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" placeholder="Digite o seu nome..">
+                <input type="text" id="nome" name="nome" placeholder="Digite o seu nome.." required>
             </div>
             <div class="campo">
                 <label for="ingredientes">Ingredientes:</label>
                 <textarea name="ingredientes" id="ingredientes"
-                    placeholder="Pão brioche, Carne 150g, Queijo cheddar, Alface americana, Tomate fresco, Molho especial"></textarea>
+                    placeholder="Pão brioche, Carne 150g, Queijo cheddar, Alface americana, Tomate fresco, Molho especial" required></textarea>
             </div>
             <input type="submit" id="enviar" value="Enviar">
         </form>
