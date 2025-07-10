@@ -10,6 +10,7 @@
 
 <body>
     <h1>Cardapio</h1>
+    <div id="cardapio"></div>
 
     <div>
         <h2>Deixe sua sugestão de lanche: </h2>
@@ -20,12 +21,23 @@
             </div>
             <div class="campo">
                 <label for="ingredientes">Ingredientes:</label>
-                <textarea name="ingredientes" id="ingredientes" placeholder="Pão brioche, Carne 150g, Queijo cheddar, Alface americana, Tomate fresco, Molho especial"></textarea>
+                <textarea name="ingredientes" id="ingredientes"
+                    placeholder="Pão brioche, Carne 150g, Queijo cheddar, Alface americana, Tomate fresco, Molho especial"></textarea>
             </div>
             <input type="submit" id="enviar" value="Enviar">
         </form>
     </div>
 
+    <script>
+        fetch('/api/lanches')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('cardapio').textContent = JSON.stringify(data);
+            })
+            .catch(error => {
+                document.getElementById('cardapio').textContent = 'Erro ao carregar os dados.';
+            });
+    </script>
 </body>
 
 </html>
