@@ -41,6 +41,9 @@ app.get('/api/lanches', (req, res) => {
     res.json(JSON.parse(data));
 });
 
+app.use('/', (req, res) => {
+    res.status(404).sendFile(path.join(__dirname + '/public/404.html'))
+});
 
 app.listen(PORT, () => {
     console.log(`Servidor da DevBurger rodando em localhost:${PORT}`);
